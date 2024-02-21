@@ -31,6 +31,13 @@ const App = () => {
     setAddress(event.target.value);
     console.log(event.target.value);
   }
+
+  const deleteDataTodo = (id) => {
+    let currentTodos = todos;
+    currentTodos = currentTodos.filter((todo, index) => todo.id !== id);
+    setTodos(currentTodos);
+  }
+
   return (
     <div className="App">
       <Nav></Nav>
@@ -42,10 +49,12 @@ const App = () => {
         <Todo
           todos={todos}
           title='All todos'
+          deleteDataTodo={deleteDataTodo}
         />
         <Todo
           todos={todos.filter((todo, index) => todo.type === 'Duy')}
           title='Duy Todos'
+          deleteDataTodo={deleteDataTodo}
         />
         <input type='text' value={address} onChange={(event) => handleChangeInput(event)}></input>
         <button type='button' onClick={(event) => handleEventClick(event)}>Click me</button>
