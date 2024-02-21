@@ -3,22 +3,24 @@ import './App.css';
 import Nav from './views/Nav';
 
 const App = () => {
+
+  const handleEventClick = () => {
+    console.log('Hello Gấu Gấu');
+  }
+
+  const handleChangeInput = () => {
+    console.log('Hello Gấu Gấu Bumrung');
+  }
   return (
     <div className="App">
       <Nav></Nav>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Hello Gấu Gấu
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <input type='text' value="Gau Gau" onChange={() => handleChangeInput()}></input>
+        <button type='button' onClick={() => handleEventClick()}>Click me</button>
       </header>
     </div>
   );
