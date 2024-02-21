@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import Nav from './views/Nav';
 import { useState } from 'react';
+
+import Nav from './views/Nav';
+import Todo from './views/Todo';
 
 const App = () => {
 
@@ -34,11 +36,9 @@ const App = () => {
         <h1>
           Hello world with {name}
         </h1>
-        <div className='todos-container'>
-          {todos.map((todo, index) => {
-            return <div key={todo.id}>{todo.name}</div>
-          })}
-        </div>
+        <Todo
+          todos={todos}
+        />
         <input type='text' value={address} onChange={(event) => handleChangeInput(event)}></input>
         <button type='button' onClick={(event) => handleEventClick(event)}>Click me</button>
       </header>
