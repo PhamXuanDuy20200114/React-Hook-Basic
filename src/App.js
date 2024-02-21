@@ -1,15 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
+import { useState } from 'react';
 
 const App = () => {
 
-  const handleEventClick = () => {
-    console.log('Hello Gấu Gấu');
+  //state
+  let [name, setName] = useState('Gấu Gấu');
+  let [address, setAddress] = useState('');
+
+  const handleEventClick = (event) => {
+    setName(address);
   }
 
-  const handleChangeInput = () => {
-    console.log('Hello Gấu Gấu Bumrung');
+  const handleChangeInput = (event) => {
+    setAddress(event.target.value);
+    console.log(event.target.value);
   }
   return (
     <div className="App">
@@ -17,10 +23,10 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Hello Gấu Gấu
+          Hello {name}
         </p>
-        <input type='text' value="Gau Gau" onChange={() => handleChangeInput()}></input>
-        <button type='button' onClick={() => handleEventClick()}>Click me</button>
+        <input type='text' value={address} onChange={(event) => handleChangeInput(event)}></input>
+        <button type='button' onClick={(event) => handleEventClick(event)}>Click me</button>
       </header>
     </div>
   );
