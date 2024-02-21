@@ -11,7 +11,10 @@ const App = () => {
   let [name, setName] = useState('Gấu Gấu');
   let [address, setAddress] = useState('');
   let [todos, setTodos] = useState([
-    { id: 'todo1', name: 'Đi chợ' }, { id: 'todo2', name: 'Nấu cơm' }, { id: 3, name: 'Rửa bát' }, { id: 4, name: 'Học bài' }
+    { id: 'todo1', name: 'Đi chợ', type: 'Duy' },
+    { id: 'todo2', name: 'Nấu cơm', type: 'Duy' },
+    { id: 3, name: 'Rửa bát', type: 'Gấu' },
+    { id: 4, name: 'Học bài', type: 'Gấu' }
   ]);
 
   const handleEventClick = (event) => {
@@ -38,6 +41,11 @@ const App = () => {
         </h1>
         <Todo
           todos={todos}
+          title='All todos'
+        />
+        <Todo
+          todos={todos.filter((todo, index) => todo.type === 'Duy')}
+          title='Duy Todos'
         />
         <input type='text' value={address} onChange={(event) => handleChangeInput(event)}></input>
         <button type='button' onClick={(event) => handleEventClick(event)}>Click me</button>
