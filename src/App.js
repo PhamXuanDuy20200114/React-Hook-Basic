@@ -1,9 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Nav from './views/Nav';
 import Todo from './views/Todo';
+import Covid from './views/Covid';
 
 const App = () => {
 
@@ -16,6 +17,10 @@ const App = () => {
     { id: 3, name: 'Rửa bát', type: 'Gấu' },
     { id: 4, name: 'Học bài', type: 'Gấu' }
   ]);
+
+  // useEffect(() => {
+  //   console.log('Component did mount App.js');
+  // }, []);
 
   const handleEventClick = (event) => {
     if (!address) {
@@ -46,7 +51,7 @@ const App = () => {
         <h1>
           Hello world with {name}
         </h1>
-        <Todo
+        {/* <Todo
           todos={todos}
           title='All todos'
           deleteDataTodo={deleteDataTodo}
@@ -57,7 +62,8 @@ const App = () => {
           deleteDataTodo={deleteDataTodo}
         />
         <input type='text' value={address} onChange={(event) => handleChangeInput(event)}></input>
-        <button type='button' onClick={(event) => handleEventClick(event)}>Click me</button>
+        <button type='button' onClick={(event) => handleEventClick(event)}>Click me</button> */}
+        <Covid />
       </header>
     </div>
   );
