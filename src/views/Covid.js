@@ -1,29 +1,8 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+// Code: Hiển thị thông tin về số ca nhiễm và tử vong do Covid-19 tại Việt Nam
+import useFetch from "../customize/fetch";
 
 const Covid = () => {
-    const asyncFunc = async () => {
-        let res = await axios.get('https://65db4bb03ea883a1529177dd.mockapi.io/SocaNhiemvaTuvong');
-        let data = res && res.data ? res.data : [];
-        console.log('data', data);
-        setDataCovid(data);
-        setIsLoading(false);
-        setIsError(false);
-    }
-    const [dataCovid, setDataCovid] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(false);
-    useEffect(() => {
-        try {
-            setTimeout(async () => {
-                await asyncFunc();
-            }, 3000);
-        } catch (error) {
-            setIsLoading(false);
-            setIsError(true);
-            console.log(error.name, ':', error.message);
-        }
-    }, []);
+    const { data: dataCovid, isLoading, isError } = useFetch('https://65db4bb03ea883a1529177dd.mockapi.io/SocaNhiemvaTuvong');
     return (
         < table id="customers" >
             <thead>
