@@ -3,6 +3,8 @@ import useFetch from "../customize/fetch";
 
 const Covid = () => {
     const { data: dataCovid, isLoading, isError } = useFetch('https://65db4bb03ea883a1529177dd.mockapi.io/SocaNhiemvaTuvong');
+    console.log('Covid data:', dataCovid);
+
     return (
         < table id="customers" >
             <thead>

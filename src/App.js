@@ -7,6 +7,8 @@ import Nav from './views/Nav';
 import Todo from './views/Todo';
 import Covid from './views/Covid';
 import { CountDown, NewCountDown } from './views/Countdown';
+import Blog from './views/Blog';
+import DetailBlog from './DetailBlog';
 
 const App = () => {
 
@@ -36,7 +38,7 @@ const App = () => {
 
   const handleChangeInput = (event) => {
     setAddress(event.target.value);
-    console.log(event.target.value);
+    //console.log(event.target.value);
   }
 
   const deleteDataTodo = (id) => {
@@ -77,6 +79,12 @@ const App = () => {
               />
               <input type='text' value={address} onChange={(event) => handleChangeInput(event)}></input>
               <button type='button' onClick={(event) => handleEventClick(event)}>Click me</button>
+            </Route>
+            <Route path='/blog' exact>
+              <Blog />
+            </Route>
+            <Route path='/blog/:id' >
+              <DetailBlog />
             </Route>
           </Switch>
         </header>

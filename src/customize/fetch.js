@@ -15,7 +15,6 @@ const useFetch = (url) => {
                     cancelToken: source.token
                 });
                 let data = res && res.data ? res.data : [];
-                console.log('data', data);
                 setData(data);
                 setIsLoading(false);
                 setIsError(false);
