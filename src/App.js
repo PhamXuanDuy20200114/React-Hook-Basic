@@ -2,18 +2,18 @@ import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from 'react';
 
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Nav from './views/Nav';
 import Todo from './views/Todo';
 import Covid from './views/Covid';
 import { CountDown, NewCountDown } from './views/Countdown';
 import Blog from './views/Blog';
-import DetailBlog from './DetailBlog';
+import DetailBlog from './views/DetailBlog';
+import AddNewBlog from './views/AddNewBlog';
 
 const App = () => {
 
   //state
-  let [name, setName] = useState('Gấu Gấu');
   let [address, setAddress] = useState('');
   let [todos, setTodos] = useState([
     { id: 'todo1', name: 'Đi chợ', type: 'Duy' },
@@ -85,6 +85,9 @@ const App = () => {
             </Route>
             <Route path='/blog/:id' >
               <DetailBlog />
+            </Route>
+            <Route path='/add-new-blog' >
+              <AddNewBlog />
             </Route>
           </Switch>
         </header>
