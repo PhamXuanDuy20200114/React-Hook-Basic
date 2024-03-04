@@ -1,16 +1,27 @@
 import './Blog.scss';
 import { useState } from 'react';
+import axios from 'axios';
 
-const AddNewBlog = () => {
+const AddNewBlog = (props) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if (!title || !content) {
             alert('Please fill all fields');
         }
 
+        let data = {
+            title: title,
+            body: content,
+            userId: 1
+        }
+        let res = await axios.post('https://jsonplaceholder.typicode.com/posts', data);
+        if (res && res.data) {
+            let newBlog = res.data;
+            props.handleAddNew(newBlog);
+        }
     }
     return (
         <div className="add-new-container">
@@ -28,6 +39,8 @@ const AddNewBlog = () => {
             </form>
         </div>
     );
+
+
 }
 
 export default AddNewBlog;
